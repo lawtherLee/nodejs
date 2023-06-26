@@ -8,5 +8,5 @@ const config = require('../config')
 
 // 注册用户接口
 exports.regUser = (req, res) => {
-
+    
 }
