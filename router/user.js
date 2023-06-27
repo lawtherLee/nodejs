@@ -7,5 +7,5 @@ const {reg_login_schema} = require('../schema/user')
 // 创建路由对象
 const router = express.Router()
 
-// 4.导入用户路由处理函数模块
+// 4.导入用户路由处理函数模块(接口部分)
 const userHandler = require('../router_handler/user')
