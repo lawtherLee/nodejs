@@ -27,6 +27,9 @@ const config = require('./config')
 // 使用 .unless({ path: [/^\/api\//] }) 指定哪些接口不需要进行 Token 的身份认证
 app.use(expressJWT({secret: config.jwtSecretKey}).unless({path: [/^\/api\//]}))
 
+const userInfoRouter = require('./router/userInfo')
+app.use('/my', userInfoRouter)
+
 // 定义捕获错误中间件
 const joi = require('joi')
 app.use((err, req, res, next) => {
