@@ -30,6 +30,15 @@ app.use(expressJWT({secret: config.jwtSecretKey}).unless({path: [/^\/api\//]}))
 const userInfoRouter = require('./router/userInfo')
 app.use('/my', userInfoRouter)
 
+const artCateRouter = require('./router/artcate')
+app.use('/articlecates', artCateRouter)
+
+const articleRouter = require('./router/article')
+app.use('/article', articleRouter)
+
+// 托管静态资源文件
+app.use('/uploads', express.static('./uploads'))
+
 // 定义捕获错误中间件
 const joi = require('joi')
 app.use((err, req, res, next) => {

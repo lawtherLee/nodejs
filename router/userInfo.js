@@ -3,7 +3,7 @@ const router = express.Router()
 
 // 验证数据合法性中间件
 const expressJoi = require('@escook/express-joi')
-const {update_userinfo_schema, update_password_schema} = require('../schema/user')
+const {update_userinfo_schema, update_password_schema, update_avatar_schema} = require('../schema/user')
 
 const userInfoHandle = require('../router_handler/userInfo')
 
@@ -13,5 +13,5 @@ router.post('/userinfo', expressJoi(update_userinfo_schema), userInfoHandle.upda
 
 router.post('/updatepwd', expressJoi(update_password_schema), userInfoHandle.updatePassword)
 
-router.post('/update/avatar', userInfoHandle.updateAvatar)
+router.post('/update/avatar', expressJoi(update_avatar_schema), userInfoHandle.updateAvatar)
 module.exports = router

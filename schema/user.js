@@ -18,6 +18,7 @@ const id = joi.number().integer().min(1).required()
 const nickname = joi.string().required()
 const email = joi.string().email().required()
 
+const avatar = joi.string().dataUri().required()
 exports.reg_login_schema = {
     body: {
         username,
